@@ -6,13 +6,18 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    colors: {
+      primary: '#0F0F0F',
+      accent: '#EBEB5E',
+      secondAccent: '#070707',
+      thirdAccent: '#EFEFEF',
+    },
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      fontFamily: {
+        openSans: ['Open Sans', 'sans-serif'],
+        bebasNeue: ['Bebas Neue', 'sans-serif'],
       },
     },
   },
   plugins: [],
-}
+};
