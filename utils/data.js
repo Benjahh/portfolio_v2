@@ -1,3 +1,11 @@
+export const heroText = [
+  {
+    text: 'Lucas Aguero',
+  },
+  {
+    text: 'Full-Stack Developer',
+  },
+];
 export const projects = [
   {
     projectId: '01',
