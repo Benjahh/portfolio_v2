@@ -1,7 +1,7 @@
 'use client';
 import { projects } from '@/utils/data';
 import { motion } from 'framer-motion';
-import { useProjectContext } from '@/utils/ProjectContext';
+
 import ProjectType from './ProjectType';
 
 const Projects = () => {
@@ -11,12 +11,6 @@ const Projects = () => {
         staggerChildren: 0.025,
       },
     },
-  };
-
-  const { setProject } = useProjectContext();
-  const projectData = 2;
-  const test = () => {
-    setProject(projectData);
   };
 
   return (
