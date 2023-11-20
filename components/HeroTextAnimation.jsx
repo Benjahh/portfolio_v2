@@ -14,21 +14,21 @@ export const HeroTextAnimation = (props) => {
     },
   };
 
-  console.log(props.text);
   const splitWords = props.text.split(' ');
+  const padding = props.padding;
 
   const words = [];
 
   for (const [, item] of splitWords.entries()) {
     words.push(item.split(''));
   }
-  console.log(words);
+
   words.map((word) => {
     return word.push('\u00A0');
   });
-  console.log(words);
+
   return (
-    <div className="flex flex-row  ">
+    <div className={`flex flex-row  ${padding}`}>
       {words.map((word, index) => {
         return (
           <div className="flex gap-1" key={index}>
@@ -41,7 +41,7 @@ export const HeroTextAnimation = (props) => {
                 }}
               >
                 <motion.div variants={item} className="block bg-clip-text ">
-                  {console.log(element)} {element}
+                  {element}
                 </motion.div>
               </motion.span>
             ))}
