@@ -3,6 +3,7 @@ import { useProjectHovering } from './ProjectHoveringProvider';
 
 const ProjectType = ({ projectId, projectName, projectType }) => {
   const { showProjectHovering, toggleProjectHovering } = useProjectHovering();
+  console.log(showProjectHovering[projectId]);
   const isHovered = showProjectHovering[projectId] || false; // Default to false if undefined
   const a = isHovered.toString();
 

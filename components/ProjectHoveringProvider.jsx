@@ -13,6 +13,7 @@ export const ProjectHoveringProvider = ({ children }) => {
     setShowProjectHovering((prevState) => ({
       ...prevState,
       [projectId]: !prevState[projectId],
+      projectId,
     }));
   };
 
