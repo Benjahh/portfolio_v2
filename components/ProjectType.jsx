@@ -3,9 +3,9 @@ import { useProjectHovering } from './ProjectHoveringProvider';
 
 const ProjectType = ({ projectId, projectName, projectType }) => {
   const { showProjectHovering, toggleProjectHovering } = useProjectHovering();
-  console.log(showProjectHovering[projectId]);
-  const isHovered = showProjectHovering[projectId] || false; // Default to false if undefined
-  const a = isHovered.toString();
+
+  const isHovered = showProjectHovering[projectId] || false;
+  console.log(isHovered);
 
   const variant = {
     hidden: {
@@ -25,8 +25,8 @@ const ProjectType = ({ projectId, projectName, projectType }) => {
   return (
     <motion.div
       variants={variant}
-      className="flex flex-row justify-between gap-8"
-      whileHover={{ scale: 1.1 }}
+      className="flex flex-row hover:brightness-95  justify-between gap-24"
+      whileHover={{ scale: 1.02 }}
       onHoverStart={() => toggleProjectHovering(projectId)}
       onHoverEnd={() => toggleProjectHovering(projectId)}
       transition={{

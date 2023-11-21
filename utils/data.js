@@ -1,11 +1,11 @@
 export const heroText = [
   {
     text: 'Lucas Aguero',
-    padding: 'pl-0',
+    padding: '0rem',
   },
   {
     text: 'Full-Stack Developer',
-    padding: 'pl-4 md:pl-8',
+    padding: '4rem',
   },
 ];
 export const projects = [

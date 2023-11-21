@@ -14,6 +14,7 @@ export const ProjectHoveringProvider = ({ children }) => {
       ...prevState,
       [projectId]: !prevState[projectId],
       projectId,
+      prevState,
     }));
   };
 

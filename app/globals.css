@@ -37,6 +37,11 @@
     U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+.bg-\[\#C9C4C4\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(201 196 196 / var(--tw-bg-opacity));
+}
+
 .flex-center {
   @apply flex items-center justify-center;
 }

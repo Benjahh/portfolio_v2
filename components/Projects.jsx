@@ -19,13 +19,15 @@ const Projects = () => {
         whileHover={{ overflow: 'visible' }}
         className="flex flex-col font-bold overflow-hidden text-sm pr-6 md:text-xl font-openSans"
       >
-        <h1 className="text-white">Projects</h1>
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={variants}
-          className=" static"
+        <motion.h1
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.25, ease: 'easeIn' }}
+          className="text-white tracking-wider font-fontfamily"
         >
+          Projects
+        </motion.h1>
+        <motion.div initial="hidden" animate="visible" variants={variants}>
           {projects.map(
             ({
               projectDescription,
