@@ -9,14 +9,42 @@ const ProjectCard = () => {
 
   const newProjectId = projectId || '01';
 
+  let hoveredProject = {};
+
+  hoveredProject = projects.find(
+    (project) => project.projectId === newProjectId
+  );
+
   return (
-    <article className="bg-green-300 w-96 h-96  transform -translate-x-1/2  absolute  -bottom-96 left-1/2 ">
-      {/* Render project card content here */}
-      <h1>Project {projectId}</h1>
-      <div>
-        {projects.map(({ projectId }) => {
-          if (projectId === newProjectId) return true;
-        })}
+    <article className="bg-thirdAccent w-[60%] h-[60%]  transform -translate-x-1/2 p-8 absolute  -bottom-[60%] left-1/2 ">
+      <div className="flex-col  relative  bg-red-300 h-full w-full  flex gap-8">
+        <div>
+          <h1> {hoveredProject.projectName}</h1>
+          <h1>{hoveredProject.projectType}</h1>
+          <div>{hoveredProject.projectId}</div>
+        </div>
+
+        <div>
+          <p>{hoveredProject.projectDescription}</p>
+          {hoveredProject.projectSkill.map(({ skillName }) => (
+            <p> {skillName}</p>
+          ))}
+        </div>
+
+        <div className="absolute bottom-0 gap-4 flex flex-row right-0">
+          <a
+            className="bg-accent  text-black project__button"
+            href={hoveredProject.projectRepo}
+          >
+            Source
+          </a>
+          <a
+            className="bg-secondAccent project__button text-white "
+            href={hoveredProject.projectLink}
+          >
+            Live
+          </a>
+        </div>
       </div>
     </article>
   );

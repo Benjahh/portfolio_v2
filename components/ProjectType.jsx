@@ -8,7 +8,18 @@ const ProjectType = ({ projectId, projectName, projectType }) => {
   const a = isHovered.toString();
 
   const variant = {
-    // Your animation variants...
+    hidden: {
+      x: '-200%',
+      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 1.4 },
+    },
+    visible: {
+      x: 0,
+      transition: {
+        ease: [0.455, 0.03, 0.515, 0.955],
+        duration: 1.3,
+        type: 'spring',
+      },
+    },
   };
 
   return (

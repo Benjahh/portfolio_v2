@@ -15,13 +15,13 @@ const Projects = () => {
 
   return (
     <section className="absolute left-0 bottom-0 text-accent m-8 md:m-16 ">
-      <div className="flex flex-col font-bold text-sm md:text-xl font-openSans">
+      <div className="flex flex-col font-bold overflow-hidden text-sm px-8 md:text-xl font-openSans">
         <h1 className="text-white">Projects</h1>
         <motion.div
           initial="hidden"
           animate="visible"
           variants={variants}
-          className="overflow-hidden static"
+          className=" static"
         >
           {projects.map(
             ({

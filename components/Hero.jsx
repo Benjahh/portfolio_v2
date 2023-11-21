@@ -6,7 +6,6 @@ import { heroText } from '@/utils/data';
 const Hero = () => {
   const container = {
     visible: {
-      overflow: 'visible',
       transition: {
         staggerChildren: 0.025,
       },
