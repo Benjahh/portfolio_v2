@@ -12,11 +12,31 @@ const ProjectCard = () => {
   let hoveredProject = {};
 
   hoveredProject = projects.find((project) => project.projectId === projectId);
+  console.log(hoveredProject);
+
+  const variants = {
+    hidden: {
+      bottom: '70%',
+      backgroundColor: '#f22989',
+      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 1.4 },
+    },
+    visible: {
+      bottom: '70%',
+      backgroundColor: '#e32989',
+      padding: '50px',
+      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 1.3 },
+    },
+  };
 
   return (
     <>
       {hoveredProject && (
-        <motion.article className="bg-thirdAccent w-[80%] h-[70%] transform -translate-x-1/2 p-8 absolute gap-8 flex row -bottom-[70%] left-1/2 ">
+        <motion.article
+          animate={hoveredProject ? 'visible' : 'hidden'}
+          variant={variants}
+          transition={{ duration: 4 }}
+          className="bg-thirdAccent w-[80%] h-[70%] transform -translate-x-1/2 p-8 absolute gap-8  left-1/2 "
+        >
           <div className="w-full h-full bg-black">
             <div className=""></div>
           </div>

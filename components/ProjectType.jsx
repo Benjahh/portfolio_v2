@@ -28,7 +28,7 @@ const ProjectType = ({ projectId, projectName, projectType }) => {
       className="flex flex-row hover:brightness-95  justify-between gap-24"
       whileHover={{ scale: 1.02 }}
       onHoverStart={() => toggleProjectHovering(projectId)}
-      onHoverEnd={() => toggleProjectHovering(projectId)}
+      onHoverEnd={() => toggleProjectHovering(false)}
       transition={{
         staggerChildren: 4,
       }}
