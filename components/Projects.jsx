@@ -15,7 +15,10 @@ const Projects = () => {
 
   return (
     <section className="absolute left-0 bottom-0 text-accent m-8 md:m-16 ">
-      <div className="flex flex-col font-bold overflow-hidden text-sm px-8 md:text-xl font-openSans">
+      <motion.div
+        whileHover={{ overflow: 'visible' }}
+        className="flex flex-col font-bold overflow-hidden text-sm pr-6 md:text-xl font-openSans"
+      >
         <h1 className="text-white">Projects</h1>
         <motion.div
           initial="hidden"
@@ -40,7 +43,7 @@ const Projects = () => {
             )
           )}
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };

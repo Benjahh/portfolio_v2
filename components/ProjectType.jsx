@@ -38,7 +38,6 @@ const ProjectType = ({ projectId, projectName, projectType }) => {
         <span className="text-accent">{projectName}</span>
       </h1>
       <h1 className="min-w-max text-white">{projectType}</h1>
-      {a}
     </motion.div>
   );
 };
