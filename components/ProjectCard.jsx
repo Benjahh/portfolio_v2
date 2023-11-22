@@ -12,35 +12,34 @@ const ProjectCard = () => {
   let hoveredProject = {};
 
   hoveredProject = projects.find((project) => project.projectId === projectId);
+  if (!hoveredProject) hoveredProject = false;
   console.log(hoveredProject);
 
   const variants = {
     hidden: {
-      bottom: '70%',
+      bottom: '-200px',
       backgroundColor: '#f22989',
-      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 1.4 },
     },
     visible: {
-      bottom: '70%',
-      backgroundColor: '#e32989',
-      padding: '50px',
-      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 1.3 },
+      bottom: '0px',
+      backgroundColor: 'red',
     },
   };
 
   return (
     <>
       {hoveredProject && (
-        <motion.article
-          animate={hoveredProject ? 'visible' : 'hidden'}
-          variant={variants}
-          transition={{ duration: 4 }}
-          className="bg-thirdAccent w-[80%] h-[70%] transform -translate-x-1/2 p-8 absolute gap-8  left-1/2 "
+        <motion.div
+          initial="hidden"
+          animate={hoveredProject && 'visible'}
+          variants={variants}
+          transition={{ duration: 1 }}
+          className="absolute p-8 transform -translate-x-1/2 left-1/2 "
         >
-          <div className="w-full h-full bg-black">
+          <div className="w-full h-20 bg-black">
             <div className=""></div>
           </div>
-          <div className="flex-col  relative  bg-red-300 h-full w-full  flex gap-8">
+          <div className="flex-col  relative  bg-red-300 h-20 w-full  flex gap-8">
             <div className=" w-full justify-between  flex flex-row">
               <h1> {hoveredProject.projectName}</h1>
               <h1>{hoveredProject.projectType}</h1>
@@ -73,7 +72,7 @@ const ProjectCard = () => {
               </a>
             </div>
           </div>
-        </motion.article>
+        </motion.div>
       )}
     </>
   );
