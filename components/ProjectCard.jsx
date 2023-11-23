@@ -1,72 +1,65 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useProjectState } from './ProjectStateProvider';
 import { projects } from '@/utils/data';
 
 const ProjectCard = () => {
   const { showProjectHovering } = useProjectState();
 
-  const { id } = showProjectHovering;
+  console.log(showProjectHovering);
 
-  let hoveredProject = {};
-
-  hoveredProject = projects.find((project) => project.projectId === id);
-  if (!hoveredProject) hoveredProject = false;
-  console.log(hoveredProject);
-
+  /*   hoveredProject = projects.find((project) => project.projectId === id);
+   */
   const variants = {
     hidden: {
       bottom: '-500px',
       backgroundColor: '#f22989',
     },
-    visible: {
-      bottom: '-170px',
+    semiVisible: {
+      bottom: '-250px',
       backgroundColor: 'red',
+    },
+    exit: {
+      bottom: '-500px',
+      transition: { ease: 'easeInOut', duration: 1 },
     },
   };
 
   return (
-    <>
-      {hoveredProject && (
+    <AnimatePresence>
+      {showProjectHovering && (
         <motion.div
           initial="hidden"
-          animate={hoveredProject && 'visible'}
+          animate={'semiVisible'}
           variants={variants}
           transition={{ duration: 1 }}
-          className="absolute p-8 transform  -rotate-12 -translate-x-1/2 left-1/2 "
+          exit="exit"
+          className="absolute p-8 transform w-2/3 rounded-xl  -rotate-12 -translate-x-1/2 left-1/2 "
         >
           <div className="w-full h-20 bg-black">
             <div className=""></div>
           </div>
           <div className="flex-col  relative  bg-red-300 h-20 w-full  flex gap-8">
             <div className=" w-full justify-between  flex flex-row">
-              <h1> {hoveredProject.projectName}</h1>
-              <h1>{hoveredProject.projectType}</h1>
+              <h1> {''}</h1>
+              <h1>{''}</h1>
             </div>
-            <div> {hoveredProject.projectId}</div>
+            <div> {''}</div>
             <div>
               <div>
-                <p>{hoveredProject.projectDescription}</p>
+                <p>{''}</p>
               </div>
-              <div className="flex gap-2 flex-row">
-                Built using;
-                {hoveredProject.projectSkill.map(({ skillName }) => (
-                  <p> {skillName}</p>
-                ))}
-              </div>
+              <div className="flex gap-2 flex-row">Built using;</div>
             </div>
 
             <div className="absolute bottom-0 gap-4 flex flex-row right-0">
-              <a
-                className="bg-accent  text-black project__button"
-                href={hoveredProject.projectRepo}
-              >
+              <a className="bg-accent  text-black project__button" href={''}>
                 Source
               </a>
               <a
                 className="bg-secondAccent project__button text-white "
-                href={hoveredProject.projectLink}
+                href={''}
               >
                 Live
               </a>
@@ -74,7 +67,7 @@ const ProjectCard = () => {
           </div>
         </motion.div>
       )}
-    </>
+    </AnimatePresence>
   );
 };
 

@@ -10,18 +10,19 @@ export const ProjectStateProvider = ({ children }) => {
   const [showProjectHovering, setShowProjectHovering] = useState(false);
   const [showProjectTapped, setShowProjectTapped] = useState(false);
   console.log(showProjectHovering);
+  console.log(showProjectTapped);
 
-  const toggleProjectHovering = (projectId) => {
-    setShowProjectHovering((prevState) => ({
-      state: () => {
-        !prevState;
-      },
-      id: projectId,
-    }));
+  const toggleProjectHovering = () => {
+    if (!showProjectTapped) {
+      setShowProjectHovering(!showProjectHovering);
+    } else {
+      setShowProjectHovering(false);
+    }
   };
 
   const toggleProjectTapped = () => {
-    setShowProjectTapped((prev) => !prev);
+    setShowProjectTapped(!showProjectTapped);
+    setShowProjectHovering(false);
   };
 
   const value = {
