@@ -1,27 +1,27 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useProjectHovering } from './ProjectHoveringProvider';
+import { useProjectState } from './ProjectStateProvider';
 import { projects } from '@/utils/data';
 
 const ProjectCard = () => {
-  const { showProjectHovering } = useProjectHovering();
+  const { showProjectHovering } = useProjectState();
 
-  const { projectId } = showProjectHovering;
+  const { id } = showProjectHovering;
 
   let hoveredProject = {};
 
-  hoveredProject = projects.find((project) => project.projectId === projectId);
+  hoveredProject = projects.find((project) => project.projectId === id);
   if (!hoveredProject) hoveredProject = false;
   console.log(hoveredProject);
 
   const variants = {
     hidden: {
-      bottom: '-200px',
+      bottom: '-500px',
       backgroundColor: '#f22989',
     },
     visible: {
-      bottom: '0px',
+      bottom: '-170px',
       backgroundColor: 'red',
     },
   };
@@ -34,7 +34,7 @@ const ProjectCard = () => {
           animate={hoveredProject && 'visible'}
           variants={variants}
           transition={{ duration: 1 }}
-          className="absolute p-8 transform -translate-x-1/2 left-1/2 "
+          className="absolute p-8 transform  -rotate-12 -translate-x-1/2 left-1/2 "
         >
           <div className="w-full h-20 bg-black">
             <div className=""></div>

@@ -27,7 +27,12 @@ const Projects = () => {
         >
           Projects
         </motion.h1>
-        <motion.div initial="hidden" animate="visible" variants={variants}>
+        <motion.div
+          initial="hidden"
+          className="flex-col gap-1 flex"
+          animate="visible"
+          variants={variants}
+        >
           {projects.map(
             ({
               projectDescription,

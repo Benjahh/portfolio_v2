@@ -1,11 +1,17 @@
+'use client';
+
 import { motion } from 'framer-motion';
-import { useProjectHovering } from './ProjectHoveringProvider';
+import { useProjectState } from './ProjectStateProvider';
 
 const ProjectType = ({ projectId, projectName, projectType }) => {
-  const { showProjectHovering, toggleProjectHovering } = useProjectHovering();
+  const {
+    toggleProjectHovering,
+    toggleProjectTapped,
+    showProjectTapped,
+    showProjectHovering,
+  } = useProjectState();
 
-  const isHovered = showProjectHovering[projectId] || false;
-  console.log(isHovered);
+  console.log(showProjectHovering);
 
   const variant = {
     hidden: {
@@ -26,6 +32,7 @@ const ProjectType = ({ projectId, projectName, projectType }) => {
     <motion.div
       variants={variant}
       className="flex flex-row hover:brightness-95  justify-between gap-24"
+      whileTap={toggleProjectTapped(projectId)}
       whileHover={{ scale: 1.02 }}
       onHoverStart={() => toggleProjectHovering(projectId)}
       onHoverEnd={() => toggleProjectHovering(false)}
