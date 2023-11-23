@@ -5,7 +5,7 @@ import { useProjectState } from './ProjectStateProvider';
 import { projects } from '@/utils/data';
 
 const ProjectCard = () => {
-  const { showProjectHovering } = useProjectState();
+  const { showProjectHovering, showProjectTapped } = useProjectState();
 
   console.log(showProjectHovering);
 
@@ -14,11 +14,14 @@ const ProjectCard = () => {
   const variants = {
     hidden: {
       bottom: '-500px',
-      backgroundColor: '#f22989',
     },
     semiVisible: {
       bottom: '-250px',
-      backgroundColor: 'red',
+    },
+    visible: {
+      bottom: '0px',
+      top: '0px',
+      margin: '40px 0 40px 0 ',
     },
     exit: {
       bottom: '-500px',
@@ -28,19 +31,21 @@ const ProjectCard = () => {
 
   return (
     <AnimatePresence>
-      {showProjectHovering && (
+      {showProjectHovering || showProjectTapped ? (
         <motion.div
           initial="hidden"
-          animate={'semiVisible'}
+          animate={showProjectTapped ? 'visible' : 'semiVisible'}
           variants={variants}
           transition={{ duration: 1 }}
           exit="exit"
-          className="absolute p-8 transform w-2/3 rounded-xl  -rotate-12 -translate-x-1/2 left-1/2 "
+          className={`absolute flex flex-col  bg-secondAccent p-8 transform w-2/3 rounded-md  ${
+            showProjectTapped ? '' : '-rotate-12'
+          } -translate-x-1/2 left-1/2 `}
         >
-          <div className="w-full h-20 bg-black">
+          <div className="w-full h-2/3 bg-black">
             <div className=""></div>
           </div>
-          <div className="flex-col  relative  bg-red-300 h-20 w-full  flex gap-8">
+          <div className="flex-col  relative  bg-red-300 h-full w-full  flex gap-8">
             <div className=" w-full justify-between  flex flex-row">
               <h1> {''}</h1>
               <h1>{''}</h1>
@@ -66,6 +71,8 @@ const ProjectCard = () => {
             </div>
           </div>
         </motion.div>
+      ) : (
+        <></>
       )}
     </AnimatePresence>
   );
