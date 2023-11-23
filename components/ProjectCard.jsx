@@ -5,74 +5,75 @@ import { useProjectState } from './ProjectStateProvider';
 import { projects } from '@/utils/data';
 
 const ProjectCard = () => {
-  const { showProjectHovering, showProjectTapped } = useProjectState();
+  const { showProjectHovering, showProjectTapped, toggleProjectTapped } =
+    useProjectState();
 
   console.log(showProjectHovering);
+  const tapped = showProjectTapped.state;
+  console.log(tapped);
 
   /*   hoveredProject = projects.find((project) => project.projectId === id);
    */
   const variants = {
     hidden: {
-      bottom: '-500px',
+      bottom: '-100%',
     },
     semiVisible: {
-      bottom: '-250px',
+      bottom: '-95%',
     },
     visible: {
-      bottom: '0px',
-      top: '0px',
-      margin: '40px 0 40px 0 ',
+      bottom: '-0%',
     },
     exit: {
-      bottom: '-500px',
-      transition: { ease: 'easeInOut', duration: 1 },
+      bottom: '-100%',
+      transition: { ease: 'easeInOut', duration: 0.5 },
     },
   };
 
   return (
     <AnimatePresence>
-      {showProjectHovering || showProjectTapped ? (
+      {(showProjectHovering || tapped) && (
         <motion.div
           initial="hidden"
-          animate={showProjectTapped ? 'visible' : 'semiVisible'}
+          animate={tapped ? 'visible' : 'semiVisible'}
           variants={variants}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.5 }}
           exit="exit"
-          className={`absolute flex flex-col  bg-secondAccent p-8 transform w-2/3 rounded-md  ${
-            showProjectTapped ? '' : '-rotate-12'
-          } -translate-x-1/2 left-1/2 `}
+          className={`absolute flex flex-row h-[90%] bg-secondAccent p-4 transform w-2/3 rounded-md gap-4 -translate-x-1/2 left-1/2 `}
         >
-          <div className="w-full h-2/3 bg-black">
-            <div className=""></div>
-          </div>
-          <div className="flex-col  relative  bg-red-300 h-full w-full  flex gap-8">
-            <div className=" w-full justify-between  flex flex-row">
-              <h1> {''}</h1>
-              <h1>{''}</h1>
+          {tapped && (
+            <div
+              onClick={() => toggleProjectTapped()}
+              className="bg-red-500 text-white absolute top-0 self-center left-1/2 transform -translate-x-1/2"
+            >
+              close
             </div>
-            <div> {''}</div>
-            <div>
+          )}
+          <div className="w-full h-full gap-4 flex flex-col ">
+            <div className="bg-black rounded-md h-2/3"></div>
+            <div className="bg-primary rounded-md h-1/3 w-full">s</div>
+          </div>
+          <div className="flex-col h-full w-full flex gap-4">
+            <div className="bg-primary flex-col rounded-md flex w-full h-full">
+              <div className=" w-full justify-between  flex flex-row">
+                <h1> {''}</h1>
+                <h1>{''}</h1>
+              </div>
+              <div> {''}</div>
               <div>
                 <p>{''}</p>
               </div>
-              <div className="flex gap-2 flex-row">Built using;</div>
             </div>
-
-            <div className="absolute bottom-0 gap-4 flex flex-row right-0">
+            <div className="gap-4 flex flex-row self-end">
               <a className="bg-accent  text-black project__button" href={''}>
                 Source
               </a>
-              <a
-                className="bg-secondAccent project__button text-white "
-                href={''}
-              >
+              <a className="bg-black project__button text-white " href={''}>
                 Live
               </a>
             </div>
           </div>
         </motion.div>
-      ) : (
-        <></>
       )}
     </AnimatePresence>
   );

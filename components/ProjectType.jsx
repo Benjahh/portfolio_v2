@@ -32,7 +32,7 @@ const ProjectType = ({ projectId, projectName, projectType }) => {
     <motion.div
       variants={variant}
       className="flex flex-row hover:brightness-95  justify-between gap-24"
-      onClick={() => toggleProjectTapped()}
+      onClick={() => toggleProjectTapped(projectId)}
       whileHover={{ scale: 1.02 }}
       onHoverStart={() => toggleProjectHovering()}
       onHoverEnd={() => toggleProjectHovering()}

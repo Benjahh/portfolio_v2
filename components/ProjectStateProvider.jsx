@@ -8,20 +8,27 @@ const ProjectStateContext = createContext();
 // Create a provider
 export const ProjectStateProvider = ({ children }) => {
   const [showProjectHovering, setShowProjectHovering] = useState(false);
-  const [showProjectTapped, setShowProjectTapped] = useState(false);
+  const [showProjectTapped, setShowProjectTapped] = useState({
+    id: false,
+    state: false,
+  });
   console.log(showProjectHovering);
   console.log(showProjectTapped);
 
   const toggleProjectHovering = () => {
-    if (!showProjectTapped) {
+    if (!showProjectTapped.state) {
       setShowProjectHovering(!showProjectHovering);
     } else {
       setShowProjectHovering(false);
     }
   };
 
-  const toggleProjectTapped = () => {
-    setShowProjectTapped(!showProjectTapped);
+  const toggleProjectTapped = (projectId) => {
+    console.log(projectId);
+    setShowProjectTapped({
+      id: projectId,
+      state: !showProjectTapped.state,
+    });
     setShowProjectHovering(false);
   };
 
