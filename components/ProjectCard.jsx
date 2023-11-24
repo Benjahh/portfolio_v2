@@ -43,9 +43,9 @@ const ProjectCard = () => {
           variants={variants}
           transition={{ duration: 0.5 }}
           exit="exit"
-          className={`absolute h-full text-xl  transform w-[70%] p-10 -translate-x-1/2 left-1/2 `}
+          className={`absolute h-full text-xl  transform w-[80%] p-10 -translate-x-1/2 left-1/2 `}
         >
-          <div className="relative bg-secondAccent w-full h-full flex flex-row p-4 rounded-md gap-4 ">
+          <div className="relative shadow-lg bg-secondAccent w-full h-full flex flex-row p-4 rounded-md gap-4 ">
             {tapped && (
               <div
                 onClick={() => toggleProjectTapped()}
@@ -59,8 +59,8 @@ const ProjectCard = () => {
               <div className="bg-primary rounded-md h-1/3 w-full">s</div>
             </div>
             <div className="flex-col h-full w-full flex gap-4">
-              <div className="flex-col  flex w-full h-full">
-                <div className=" w-full bg-slate-300  px-2 justify-between text-white  flex flex-row">
+              <div className="flex-col  flex w-full h-full gap-4">
+                <div className=" w-full justify-between px-2 text-sm  gap-1 flex flex-row">
                   <h1 className="project__title">
                     {tappedProject?.projectName}
                   </h1>
@@ -68,9 +68,8 @@ const ProjectCard = () => {
                     {tappedProject?.projectType}
                   </h1>
                 </div>
-                <div className="bg-primary rounded-md  w-full ">
-                  {' '}
-                  <p></p>
+                <div className="bg-primary rounded-md text-white h-full p-4 text-sm  w-full ">
+                  <p>{tappedProject?.projectDescription}</p>
                 </div>
               </div>
               <div className="gap-4 flex text-sm font-openSans flex-row self-end">

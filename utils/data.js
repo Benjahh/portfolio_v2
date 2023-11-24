@@ -12,7 +12,7 @@ export const projects = [
   {
     projectId: '01',
     projectName: 'WebScrapingApp',
-    projectType: 'PRACTICE PROJECT',
+    projectType: 'Practice Project',
     projectRepo: 'https://github.com/Benjahh/benjahh.github.io',
     projectLink: 'https://facebook.com',
     projectDescription:
