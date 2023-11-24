@@ -47,5 +47,9 @@
 }
 
 .project__button {
-  @apply w-20 flex-center rounded-md font-medium hover:cursor-pointer py-2;
+  @apply w-20 flex-center rounded-md font-bold hover:bg-white hover:text-black hover:cursor-pointer py-2;
+}
+
+.project__title {
+  @apply bg-accent px-3 py-0.5 rounded-t-sm  text-black text-lg font-bold;
 }

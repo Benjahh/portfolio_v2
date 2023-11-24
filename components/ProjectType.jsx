@@ -11,6 +11,8 @@ const ProjectType = ({ projectId, projectName, projectType }) => {
     showProjectHovering,
   } = useProjectState();
 
+  console.log(showProjectTapped);
+
   console.log(showProjectHovering);
 
   const variant = {
@@ -31,13 +33,18 @@ const ProjectType = ({ projectId, projectName, projectType }) => {
   return (
     <motion.div
       variants={variant}
-      className="flex flex-row hover:brightness-95  justify-between gap-24"
-      onClick={() => toggleProjectTapped(projectId)}
+      className="flex hover:cursor-pointer flex-row hover:brightness-95  justify-between gap-24"
+      onClick={() => {
+        if (!showProjectTapped.state) {
+          toggleProjectTapped(projectId);
+          console.log(projectId);
+        }
+      }}
       whileHover={{ scale: 1.02 }}
-      onHoverStart={() => toggleProjectHovering()}
+      onHoverStart={() => toggleProjectHovering(projectId)}
       onHoverEnd={() => toggleProjectHovering()}
       transition={{
-        staggerChildren: 4,
+        staggerChildren: 0,
       }}
     >
       <h1 className="flex flex-row w-full gap-2">
