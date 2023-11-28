@@ -45,7 +45,7 @@ export const projects = [
   {
     projectId: '02',
     projectName: 'ThreadsApp',
-    projectType: 'PRACTICE PROJECT',
+    projectType: 'Practice Project',
     projectRepo: 'https://github.com/Benjahh/benjahh.github.io',
     projectLink: 'https://google.com',
     projectDescription:
@@ -78,7 +78,7 @@ export const projects = [
   {
     projectId: '03',
     projectName: 'CarShowcaseApp',
-    projectType: 'PRACTICE PROJECT',
+    projectType: 'Practice Project',
     projectRepo: 'https://github.com/Benjahh/benjahh.github.io',
     projectLink: 'https://google.com',
     projectDescription:
@@ -111,7 +111,7 @@ export const projects = [
   {
     projectId: '04',
     projectName: 'BlockChainApp',
-    projectType: 'PRACTICE PROJECT',
+    projectType: 'Practice Project',
     projectRepo: 'https://github.com/Benjahh/benjahh.github.io',
     projectLink: 'https://google.com',
     projectDescription:
