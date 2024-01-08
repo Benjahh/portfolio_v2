@@ -3,6 +3,7 @@ import Projects from '@/components/Projects';
 import SocialLinks from '@/components/SocialLinks';
 import ProjectCard from '@/components/ProjectCard';
 import { ProjectStateProvider } from '@/components/ProjectStateProvider';
+import BottomBar from '@/components/BottomBar';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <ProjectCard />
       </ProjectStateProvider>
       <SocialLinks />
+      <BottomBar />
     </main>
   );
 }
