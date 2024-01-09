@@ -1,6 +1,6 @@
 'use client';
 
-import { FiGithub, FiLinkedin } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiFileText } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 
 const SocialLinks = () => {
@@ -11,8 +11,7 @@ const SocialLinks = () => {
     visible: {
       opacity: 1,
       transition: {
-        delayChildren: 0.5,
-        staggerChildren: 1,
+        staggerChildren: 0.5,
       },
     },
   };
@@ -20,9 +19,11 @@ const SocialLinks = () => {
   const childrenVariant = {
     hidden: {
       x: '200%',
+      opacity: 0,
     },
     visible: {
       x: 0,
+      opacity: 1,
     },
   };
   return (
@@ -30,26 +31,28 @@ const SocialLinks = () => {
       initial="hidden"
       animate="visible"
       variants={variant}
-      className="text-red-400 absolute right-0 mr-20 mt-20 flex flex-row gap-4 top-0 h-20"
+      className=" absolute right-0 mr-20 mt-20 flex w-56 top-0 h-20 justify-between "
     >
-      <motion.a
-        initial="hidden"
-        animate="visible"
-        variants={childrenVariant}
-        href="https://www.mudai.dev"
-        onHover={{ scale: 2 }}
-        className="hover:cursor-pointer"
-      >
-        <FiGithub className="text-accent" size="40" />
+      <motion.a variants={childrenVariant} href="https://github.com/Benjahh">
+        <FiGithub
+          className="text-white hover:cursor-pointer hover:text-accent"
+          size="40"
+        />
       </motion.a>
       <motion.a
-        initial="hidden"
-        animate="visible"
-        variants={variant}
-        href="https://www.mudai.dev"
-        className="hover:cursor-pointer"
+        variants={childrenVariant}
+        href="https://www.linkedin.com/in/lucas-agüero-264950251/"
       >
-        <FiLinkedin className="text-white" size="40" />
+        <FiLinkedin
+          className="text-white hover:cursor-pointer hover:text-accent"
+          size="40"
+        />
+      </motion.a>
+      <motion.a href="/" download variants={childrenVariant} className="ml-12 ">
+        <FiFileText
+          className="text-accent hover:cursor-pointer  hover:text-white"
+          size="40"
+        />
       </motion.a>
     </motion.div>
   );

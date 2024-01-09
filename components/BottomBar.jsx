@@ -7,7 +7,6 @@ const BottomBar = () => {
     hidden: {
       opacity: 0,
       y: '200%',
-      textColor: 'rgba(255, 255, 255)',
     },
     visible: {
       opacity: 1,
