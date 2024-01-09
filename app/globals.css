@@ -53,3 +53,11 @@
 .project__title {
   @apply bg-accent text-sm w-36 text-center  px-3 py-0.5 rounded-sm  text-black  font-bold;
 }
+
+.hero__section {
+  @apply text-4xl md:text-7xl font-fontfamily font-bold text-accent;
+}
+
+.social__icon {
+  @apply text-white hover:cursor-pointer md:w-10 md:h-10  h-6 w-6 hover:text-accent;
+}

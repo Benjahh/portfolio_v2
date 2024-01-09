@@ -27,7 +27,7 @@ export const HeroTextAnimation = (props) => {
   });
 
   return (
-    <div className="flex flex-row  " style={{ paddingLeft: padding }}>
+    <div className="flex flex-row" style={{ paddingLeft: padding }}>
       {words.map((word, index) => {
         return (
           <div className="flex gap-1" key={index}>
@@ -47,7 +47,6 @@ export const HeroTextAnimation = (props) => {
           </div>
         );
       })}
-      {/* {} */}
     </div>
   );
 };

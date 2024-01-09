@@ -5,7 +5,7 @@ export const heroText = [
   },
   {
     text: 'Full-Stack Developer',
-    padding: '4rem',
+    padding: '2rem',
   },
 ];
 export const projects = [

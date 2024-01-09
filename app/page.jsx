@@ -9,12 +9,12 @@ export default function Home() {
   return (
     <main className="flex min-h-screen min-w-full relative overflow-hidden bg-background">
       <Hero />
+      <SocialLinks />
+      <BottomBar />
       <ProjectStateProvider>
         <Projects />
         <ProjectCard />
       </ProjectStateProvider>
-      <SocialLinks />
-      <BottomBar />
     </main>
   );
 }

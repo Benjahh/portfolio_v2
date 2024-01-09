@@ -16,9 +16,6 @@ export const ProjectStateProvider = ({ children }) => {
     state: false,
   });
 
-  console.log(showProjectHovering);
-  console.log(showProjectTapped);
-
   const toggleProjectHovering = (projectId) => {
     if (!showProjectTapped.state) {
       setShowProjectHovering((prevState) => ({

@@ -14,10 +14,10 @@ const Projects = () => {
   };
 
   return (
-    <section className="absolute left-0 bottom-0 text-accent m-8 md:m-16 ">
+    <section className="absolute md:left-0  w-screen md:w-auto bottom-0 text-accent px-4 mb-28   ">
       <motion.div
         whileHover={{ overflow: 'visible' }}
-        className="flex flex-col font-bold overflow-hidden text-sm pr-6 md:text-xl font-openSans"
+        className="flex flex-col font-bold overflow-hidden  md:text-xl font-openSans"
       >
         <motion.h1
           initial={{ opacity: 0 }}
@@ -29,7 +29,7 @@ const Projects = () => {
         </motion.h1>
         <motion.div
           initial="hidden"
-          className="flex-col gap-1 flex"
+          className="flex-col  gap-1 border"
           animate="visible"
           variants={variants}
         >

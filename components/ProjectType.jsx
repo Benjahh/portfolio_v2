@@ -11,10 +11,6 @@ const ProjectType = ({ projectId, projectName, projectType }) => {
     showProjectHovering,
   } = useProjectState();
 
-  console.log(showProjectTapped);
-
-  console.log(showProjectHovering);
-
   const variant = {
     hidden: {
       x: '-200%',
@@ -33,7 +29,7 @@ const ProjectType = ({ projectId, projectName, projectType }) => {
   return (
     <motion.div
       variants={variant}
-      className="flex hover:bg-secondAccent hover:cursor-pointer flex-row hover:brightness-125 px-2 py-[0.5px] rounded-md  justify-between gap-24"
+      className="flex hover:bg-secondAccent hover:cursor-pointer flex-row hover:brightness-125 px-2 py-[0.5px] rounded-md  justify-between gap-12 md:gap-24"
       onClick={() => {
         if (!showProjectTapped.state) {
           toggleProjectTapped(projectId);

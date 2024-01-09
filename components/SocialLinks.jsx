@@ -15,7 +15,6 @@ const SocialLinks = () => {
       },
     },
   };
-
   const childrenVariant = {
     hidden: {
       x: '200%',
@@ -27,34 +26,32 @@ const SocialLinks = () => {
     },
   };
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={variant}
-      className=" absolute right-0 mr-20 mt-20 flex w-56 top-0 h-20 justify-between "
-    >
-      <motion.a variants={childrenVariant} href="https://github.com/Benjahh">
-        <FiGithub
-          className="text-white hover:cursor-pointer hover:text-accent"
-          size="40"
-        />
-      </motion.a>
-      <motion.a
-        variants={childrenVariant}
-        href="https://www.linkedin.com/in/lucas-agüero-264950251/"
+    <section className="absolute right-0 mt-4 mr-4 md:mr-20 w-56 top-0 md:mt-20 ">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={variant}
+        className="  flex flex-row justify-end  gap-2 "
       >
-        <FiLinkedin
-          className="text-white hover:cursor-pointer hover:text-accent"
-          size="40"
-        />
-      </motion.a>
-      <motion.a href="/" download variants={childrenVariant} className="ml-12 ">
-        <FiFileText
-          className="text-accent hover:cursor-pointer  hover:text-white"
-          size="40"
-        />
-      </motion.a>
-    </motion.div>
+        <motion.a variants={childrenVariant} href="https://github.com/Benjahh">
+          <FiGithub className="social__icon" />
+        </motion.a>
+        <motion.a
+          variants={childrenVariant}
+          href="https://www.linkedin.com/in/lucas-agüero-264950251/"
+        >
+          <FiLinkedin className="social__icon" />
+        </motion.a>
+        <motion.a
+          href="/"
+          download
+          variants={childrenVariant}
+          className=" ml-6 md:ml-12 "
+        >
+          <FiFileText className="text-accent hover:cursor-pointer h-6 w-6 md:w-10  md:h-10  hover:text-white" />
+        </motion.a>
+      </motion.div>
+    </section>
   );
 };
 
